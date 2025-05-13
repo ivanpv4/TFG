@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1100.0" style="-fx-background-color: #fceb9b;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.AdminController">
+   <children>
+      <ImageView fx:id="backImage" fitHeight="70.0" fitWidth="70.0" layoutX="996.0" layoutY="750.0" onMouseClicked="#regresar" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="34.0">
+         <image>
+            <Image url="@/img\flechaBack.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="280.0" layoutY="55.0" prefHeight="105.0" prefWidth="540.0" style="-fx-background-color: #B9935A; -fx-background-radius: 15;" text="Administración" textFill="#f8f8f8">
+         <font>
+            <Font size="72.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="110.0" layoutY="400.0" prefHeight="53.0" prefWidth="285.0" style="-fx-background-color: #B9935A; -fx-background-radius: 15;" text="Agregar Usuario" textFill="#f8f8f8">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="addUserImage" fitHeight="150.0" fitWidth="150.0" layoutX="177.0" layoutY="243.0" onMouseClicked="#goToAddUser" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+      	 <image>
+            <Image url="@/img\agregarUsuario.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="426.0" layoutY="400.0" prefHeight="53.0" prefWidth="248.0" style="-fx-background-color: #B9935A; -fx-background-radius: 15;" text="Editar Usuario" textFill="#f8f8f8">
+         <font>
+            <Font size="36.0" />
+         </font></Label>
+      <ImageView fx:id="editUserImage" fitHeight="150.0" fitWidth="150.0" layoutX="475.0" layoutY="243.0" onMouseClicked="#goToEditUser" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+      	 <image>
+            <Image url="@/img\editarUsuario.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="706.0" layoutY="400.0" prefHeight="53.0" prefWidth="285.0" style="-fx-background-color: #B9935A; -fx-background-radius: 15;" text="Eliminar Usuario" textFill="#f8f8f8">
+         <font>
+            <Font size="36.0" />
+         </font></Label>
+      <ImageView fx:id="deleteUserImage" fitHeight="150.0" fitWidth="150.0" layoutX="773.0" layoutY="243.0" onMouseClicked="#goToDeleteUser" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+         <image>
+            <Image url="@/img\eliminarUsuario.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="132.0" layoutY="686.0" prefHeight="53.0" prefWidth="242.0" style="-fx-background-color: #B9935A; -fx-background-radius: 15;" text="Agregar Libro" textFill="#f8f8f8">
+         <font>
+            <Font size="36.0" />
+         </font></Label>
+      <ImageView fx:id="addBookImage" fitHeight="150.0" fitWidth="150.0" layoutX="177.0" layoutY="530.0" onMouseClicked="#goToAddBook" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+         <image>
+            <Image url="@/img/agregarLibro.png" />
+         </image></ImageView>
+      <Label alignment="CENTER" layoutX="447.0" layoutY="686.0" prefHeight="53.0" prefWidth="206.0" style="-fx-background-color: #B9935A; -fx-background-radius: 15;" text="Editar Libro" textFill="#f8f8f8">
+         <font>
+            <Font size="36.0" />
+         </font></Label>
+      <ImageView fx:id="editBookImage" fitHeight="150.0" fitWidth="150.0" layoutX="475.0" layoutY="530.0" onMouseClicked="#goToEditBook" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+         <image>
+            <Image url="@/img/editarLibro.png" />
+         </image></ImageView>
+      <Label alignment="CENTER" layoutX="727.0" layoutY="686.0" prefHeight="53.0" prefWidth="242.0" style="-fx-background-color: #B9935A; -fx-background-radius: 15;" text="Eliminar Libro" textFill="#f8f8f8">
+         <font>
+            <Font size="36.0" />
+         </font></Label>
+      <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="773.0" layoutY="530.0" onMouseClicked="#goToDeleteBook" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+         <image>
+            <Image url="@/img/eliminarLibro.png" />
+         </image></ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1100.0" style="-fx-background-color: #fceb9b;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.PerfilController">
+   <children>
+      <Label alignment="CENTER" layoutX="443.0" layoutY="55.0" prefHeight="105.0" prefWidth="215.0" style="-fx-background-color: #B9935A; -fx-background-radius: 15;" text="Perfil" textFill="#f8f8f8">
+         <font>
+            <Font size="72.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="backImage" fitHeight="70.0" fitWidth="70.0" layoutX="996.0" layoutY="750.0" onMouseClicked="#regresar" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="34.0">
+         <image>
+            <Image url="@/img\flechaBack.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
