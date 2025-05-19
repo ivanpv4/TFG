@@ -16,8 +16,8 @@ import jakarta.persistence.Table;
 public class Genero implements Serializable {
 	
 	@Id
-	@Column(name = "ID_Género")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_Género")
 	private int id_genero;
 	@Column(name = "Nombre_Género", unique = true, nullable = false)
 	private String nombre_genero;

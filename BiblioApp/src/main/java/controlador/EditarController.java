@@ -92,7 +92,7 @@ public class EditarController {
 			                    otroLibro.setSeleccionado(false);
 			                }
 			            }
-			            tablaLibros.refresh(); // Refresca para que la tabla lo muestre
+			            tablaLibros.refresh();
 			        }
 			    });
 			}
@@ -109,7 +109,7 @@ public class EditarController {
 			String genero = normalizar(libro.getGeneros().stream().map(g -> g.getNombre_genero()).collect(Collectors.joining(", ")));
 			String año = String.valueOf(libro.getAño_publicacion());
 			String isbn = normalizar(libro.getIsbn());
-			String disponibilidad = libro.isDisponibilidad() ? "Libre" : "Alquilado";
+			String disponibilidad = libro.isDisponibilidad() ? "Disponible" : "Alquilado";
 			
 			return nombre.contains(filtro) || autor.contains(filtro) || genero.contains(filtro) || año.contains(filtro) || isbn.contains(filtro)
 					|| disponibilidad.contains(filtro) || normalizar(disponibilidad).contains(filtro);

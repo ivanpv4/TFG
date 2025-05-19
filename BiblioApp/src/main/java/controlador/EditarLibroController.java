@@ -9,11 +9,8 @@ import org.hibernate.Session;
 import app.BiblioApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
@@ -55,7 +52,7 @@ public class EditarLibroController {
     
     @FXML
     public void initialize() {
-        cargarGeneros();      // la lista habrá que llenarla antes
+        cargarGeneros();
     }
 
     public void setLibro(Libro libro) {
@@ -122,6 +119,13 @@ public class EditarLibroController {
     	filtro.setVisible(true);
     	filtro.toFront();
     	confirmarEdicion.toFront();
+    }
+    
+    @FXML
+    private void confirmarEdicionEnter(KeyEvent event) {
+    	if (event.getCode() == KeyCode.ENTER) {
+    		confirmarEdicion();
+    	}
     }
     
     @FXML

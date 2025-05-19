@@ -46,7 +46,7 @@
 								<Insets bottom="4.0" />
 							</padding>
 						</Label>
-						<TextField fx:id="nombreField" minHeight="-Infinity" prefHeight="40.0">
+						<TextField fx:id="nombreField" minHeight="-Infinity" onKeyPressed="#confirmarEdicionEnter" prefHeight="40.0">
 							<font>
 								<Font size="18.0" />
 							</font>
@@ -59,7 +59,7 @@
 								<Insets bottom="4.0" top="4.0" />
 							</padding>
 						</Label>
-						<TextField fx:id="autorField" minHeight="-Infinity" prefHeight="40.0">
+						<TextField fx:id="autorField" minHeight="-Infinity" onKeyPressed="#confirmarEdicionEnter" prefHeight="40.0">
 							<font>
 								<Font size="18.0" />
 							</font>
@@ -73,7 +73,7 @@
 							</padding>
 						</Label>
 						<CheckComboBox fx:id="generosCombo" minHeight="-Infinity" prefHeight="40.0" prefWidth="335.0" />
-						<Label text="Fecha de Publicación">
+						<Label text="Fecha de publicación">
 							<font>
 								<Font size="24.0" />
 							</font>
@@ -81,7 +81,7 @@
 								<Insets bottom="4.0" top="4.0" />
 							</padding>
 						</Label>
-						<DatePicker fx:id="fechaPicker" minHeight="-Infinity" prefHeight="40.0" prefWidth="335.0" />
+						<DatePicker fx:id="fechaPicker" minHeight="-Infinity" onKeyPressed="#confirmarEdicionEnter" prefHeight="40.0" prefWidth="335.0" />
 						<Label text="ISBN">
 							<font>
 								<Font size="24.0" />
@@ -90,7 +90,7 @@
 								<Insets bottom="4.0" top="4.0" />
 							</padding>
 						</Label>
-						<TextField fx:id="isbnField" minHeight="-Infinity" prefHeight="40.0">
+						<TextField fx:id="isbnField" minHeight="-Infinity" onKeyPressed="#confirmarEdicionEnter" prefHeight="40.0">
 							<font>
 								<Font size="18.0" />
 							</font>

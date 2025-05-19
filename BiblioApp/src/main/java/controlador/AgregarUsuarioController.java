@@ -16,7 +16,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import modelo.ManagerUsuario;
 
-public class AgregarController {
+public class AgregarUsuarioController {
 	
 	@FXML
 	private Label mensaje;
@@ -75,7 +75,14 @@ public class AgregarController {
 	}
 	
 	@FXML
-	private void hacerRegistroAdmin() throws IOException {
+	private void limpiarFormulario() {
+		userField.clear();
+		passField.clear();
+		passField2.clear();
+	}
+	
+	@FXML
+	private void hacerRegistroAdmin() {
 		mensaje.setText("");
 		mensajePass.setText("");
 		mensajePass2.setText("");
@@ -98,19 +105,21 @@ public class AgregarController {
 					mensaje.setText("El usuario ya está registrado");
 				} else {
 					confirmarRegistro();
+					limpiarFormulario();
 				}
 			} else {
 				if (!ManagerUsuario.registrarUsuarioAdmin(userField.getText(), passField.getText(), true)) {
 					mensaje.setText("El usuario ya está registrado");
 				} else {
 					confirmarRegistro();
+					limpiarFormulario();
 				}
 			}
 		}
 	}
 	
 	@FXML
-    private void hacerRegistroAdminEnter(KeyEvent event) throws IOException {
+    private void hacerRegistroAdminEnter(KeyEvent event) {
     	if (event.getCode() == KeyCode.ENTER) {
     		hacerRegistroAdmin();
     	}

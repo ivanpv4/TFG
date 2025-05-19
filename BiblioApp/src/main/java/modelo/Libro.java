@@ -13,8 +13,8 @@ import javafx.beans.property.SimpleBooleanProperty;
 public class Libro implements Serializable {
 
 	@Id
-	@Column(name = "ID_Libro")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_Libro")
 	private int id_libro;
 	@Column(name = "ISBN", nullable = false)
 	private String isbn;
@@ -27,7 +27,7 @@ public class Libro implements Serializable {
 	@Column(name = "Disponibilidad")
 	private boolean disponibilidad;
 
-	@ManyToMany
+	@ManyToMany(cascade = { CascadeType.MERGE }, fetch = FetchType.LAZY)
 	@JoinTable(name = "género_libros", joinColumns = @JoinColumn(name = "ID_Libro"), inverseJoinColumns = @JoinColumn(name = "ID_Género"))
 	private List<Genero> generos;
 	
