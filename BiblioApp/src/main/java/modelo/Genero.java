@@ -57,4 +57,8 @@ public class Genero implements Serializable {
 		this.libros = libros;
 	}
 	
+	@Override
+	public String toString() {
+		return nombre_genero;
+	}
 }

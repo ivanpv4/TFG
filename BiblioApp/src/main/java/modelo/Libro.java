@@ -5,6 +5,8 @@ import java.sql.Date;
 import java.util.List;
 
 import jakarta.persistence.*;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 
 @Entity
 @Table(name = "libro")
@@ -28,6 +30,9 @@ public class Libro implements Serializable {
 	@ManyToMany
 	@JoinTable(name = "género_libros", joinColumns = @JoinColumn(name = "ID_Libro"), inverseJoinColumns = @JoinColumn(name = "ID_Género"))
 	private List<Genero> generos;
+	
+	@Transient
+	private final BooleanProperty seleccionado = new SimpleBooleanProperty(false);
 	
 	public Libro() {
 		
@@ -95,6 +100,18 @@ public class Libro implements Serializable {
 
 	public void setGeneros(List<Genero> generos) {
 		this.generos = generos;
+	}
+
+	public BooleanProperty seleccionadoProperty() {
+	    return seleccionado;
+	}
+	
+	public boolean isSeleccionado() {
+	    return seleccionado.get();
+	}
+	
+	public void setSeleccionado(boolean seleccionado) {
+	    this.seleccionado.set(seleccionado);
 	}
 
 }
