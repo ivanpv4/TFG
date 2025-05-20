@@ -74,7 +74,7 @@ public class EditarUsuarioSeleccionadoController {
     }
 	
 	@FXML
-    private void confirmar() {
+    private void rechazar() {
     	confirmarEdicion.toBack();
     	filtro.toBack();
     	filtro.setVisible(false);

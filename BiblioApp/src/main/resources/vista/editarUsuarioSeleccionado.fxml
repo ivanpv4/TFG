@@ -125,7 +125,7 @@
                         <Insets left="100.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="noBoton" mnemonicParsing="false" onAction="#confirmar" prefHeight="39.0" prefWidth="80.0" text="No">
+                  <Button fx:id="noBoton" mnemonicParsing="false" onAction="#rechazar" prefHeight="39.0" prefWidth="80.0" text="No">
                      <HBox.margin>
                         <Insets left="50.0" />
                      </HBox.margin>

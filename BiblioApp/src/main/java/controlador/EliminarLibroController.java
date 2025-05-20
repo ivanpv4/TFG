@@ -5,7 +5,7 @@ import java.io.IOException;
 import app.BiblioApp;
 import javafx.fxml.FXML;
 
-public class EliminarController {
+public class EliminarLibroController {
 	
 	@FXML
 	private void regresarAdministracion() throws IOException {
