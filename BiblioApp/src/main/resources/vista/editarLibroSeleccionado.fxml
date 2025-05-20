@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.CheckComboBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1100.0" style="-fx-background-color: #fceb9b;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.EditarLibroController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1100.0" style="-fx-background-color: #fceb9b;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.EditarLibroSeleccionadoController">
 	<children>
 		<Label alignment="CENTER" layoutX="345.0" layoutY="55.0" prefHeight="105.0" prefWidth="410.0" style="-fx-background-color: #B9935A; -fx-background-radius: 15;" text="Editar Libro" textFill="#f8f8f8">
 			<font>

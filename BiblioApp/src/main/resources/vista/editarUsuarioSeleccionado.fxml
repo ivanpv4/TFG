@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1100.0" style="-fx-background-color: #fceb9b;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.EditarUsuarioSeleccionadoController">
+   <children>
+      <Label alignment="CENTER" layoutX="300.0" layoutY="55.0" prefHeight="105.0" prefWidth="500.0" style="-fx-background-color: #B9935A; -fx-background-radius: 15;" text="Editar Usuario" textFill="#f8f8f8">
+         <font>
+            <Font size="72.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="backImage" fitHeight="70.0" fitWidth="70.0" layoutX="996.0" layoutY="750.0" onMouseClicked="#regresarEditar" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="34.0">
+         <image>
+            <Image url="@/img/flechaBack.png" />
+         </image>
+      </ImageView>
+      <GridPane layoutX="358.0" layoutY="281.0" prefHeight="333.0" prefWidth="341.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Usuario">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="userField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#confirmarEdicionEnter" prefHeight="40.0" prefWidth="335.0" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Label text="Contraseña" GridPane.rowIndex="2">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="passField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#confirmarEdicionEnter" prefHeight="40.0" prefWidth="335.0" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
+            <Label text="Administrador" GridPane.rowIndex="4">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
+               <children>
+                  <RadioButton fx:id="siRB" mnemonicParsing="false" text="Sí">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="2.0" top="5.0" />
+                     </HBox.margin>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="admin" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="noRB" mnemonicParsing="false" selected="true" text="No" toggleGroup="$admin">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="40.0" top="5.0" />
+                     </HBox.margin>
+                  </RadioButton>
+               </children>
+            </HBox>
+            <Button fx:id="editarBoton" mnemonicParsing="false" onAction="#confirmarEdicion" prefHeight="39.0" prefWidth="95.0" text="Editar" GridPane.rowIndex="6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="122.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+      <Pane fx:id="filtro" opacity="0.8" prefHeight="850.0" prefWidth="1100.0" style="-fx-background-color: #6b6441;" visible="false" />
+      <GridPane fx:id="confirmarEdicion" layoutX="345.0" layoutY="353.0" prefHeight="145.0" prefWidth="410.0" style="-fx-background-color: #fceb9b; -fx-border-color: #000000; -fx-background-radius: 15; -fx-border-radius: 15;" visible="false">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="71.0" minHeight="10.0" prefHeight="71.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="34.0" minHeight="0.0" prefHeight="13.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="408.0" text="¿Confirmar edición?">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+               <children>
+                  <Button fx:id="siBoton" mnemonicParsing="false" onAction="#guardarCambios" prefHeight="39.0" prefWidth="80.0" text="Sí">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="100.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="noBoton" mnemonicParsing="false" onAction="#confirmar" prefHeight="39.0" prefWidth="80.0" text="No">
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+      <GridPane fx:id="confirmarMensaje" layoutX="345.0" layoutY="353.0" prefHeight="145.0" prefWidth="410.0" style="-fx-background-color: #fceb9b; -fx-border-color: #000000; -fx-background-radius: 15; -fx-border-radius: 15;" visible="false">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="71.0" minHeight="10.0" prefHeight="71.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="34.0" minHeight="0.0" prefHeight="13.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="408.0" text="Edición realizada con éxito">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Label>
+            <Button fx:id="confirmarBoton" mnemonicParsing="false" onAction="#confirmarMensaje" prefHeight="39.0" prefWidth="126.0" text="Confirmar" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="20.0" left="141.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

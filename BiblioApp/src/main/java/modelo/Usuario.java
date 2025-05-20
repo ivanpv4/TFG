@@ -8,6 +8,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 
 @Entity
 @Table(name = "usuario")
@@ -23,6 +26,9 @@ public class Usuario implements Serializable {
 	private String contraseña;
 	@Column(name = "Admin")
 	private boolean admin;
+	
+	@Transient
+	private final BooleanProperty seleccionado = new SimpleBooleanProperty(false);
 	
 	public Usuario(String usuario, String contraseña) {
 		this.usuario = usuario;
@@ -70,6 +76,18 @@ public class Usuario implements Serializable {
 
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
+	}
+	
+	public BooleanProperty seleccionadoProperty() {
+	    return seleccionado;
+	}
+	
+	public boolean isSeleccionado() {
+	    return seleccionado.get();
+	}
+	
+	public void setSeleccionado(boolean seleccionado) {
+	    this.seleccionado.set(seleccionado);
 	}
 	
 }
