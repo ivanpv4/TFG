@@ -20,10 +20,11 @@
             <Image url="@../img/flechaBack.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tablaAlquileres" layoutX="130.0" layoutY="245.0" prefHeight="420.0" prefWidth="840.0">
+      <TableView fx:id="tablaAlquileres" layoutX="140.0" layoutY="245.0" prefHeight="420.0" prefWidth="820.0">
         <columns>
-          <TableColumn fx:id="colFechaAlq" prefWidth="160.0" text="Fecha alquiler" />
-          <TableColumn fx:id="colFechaDev" prefWidth="160.0" text="Fecha límite devolución" />
+          <TableColumn fx:id="colFechaAlq" prefWidth="100.0" text="F. alquiler" />
+          <TableColumn fx:id="colFechaPrev" prefWidth="100.0" text="F. prevista" />
+            <TableColumn fx:id="colFechaDev" prefWidth="100.0" text="F. Devolución" />
           <TableColumn fx:id="colLibros" prefWidth="420.0" text="Libros" />
           <TableColumn fx:id="colAccion" prefWidth="100.0" />
         </columns>

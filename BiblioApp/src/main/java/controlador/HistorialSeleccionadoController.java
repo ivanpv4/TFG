@@ -20,13 +20,13 @@ import modelo.Usuario;
 public class HistorialSeleccionadoController {
 
 	@FXML
-	private Label titulo;
-
-	@FXML
 	private TableView<Alquiler> tablaAlquileres;
 
 	@FXML
 	private TableColumn<Alquiler, LocalDate> colFechaAlq;
+	
+	@FXML
+	private TableColumn<Alquiler, LocalDate> colFechaPrev;
 
 	@FXML
 	private TableColumn<Alquiler, LocalDate> colFechaDev;
@@ -41,8 +41,6 @@ public class HistorialSeleccionadoController {
 
 	public void setUsuario(Usuario user) {
 		this.usuario = user;
-		titulo.setText("Historial de " + user.getUsuario());
-		titulo.autosize();
 		cargarAlquileres();
 	}
 
@@ -50,6 +48,7 @@ public class HistorialSeleccionadoController {
 	private void initialize() {
 
 		colFechaAlq.setCellValueFactory(new PropertyValueFactory<>("fechaAlquiler"));
+		colFechaPrev.setCellValueFactory(new PropertyValueFactory<>("fechaPrevista"));
 		colFechaDev.setCellValueFactory(new PropertyValueFactory<>("fechaDevolucion"));
 
 		colLibros.setCellValueFactory(cd -> new SimpleStringProperty(
@@ -112,7 +111,7 @@ public class HistorialSeleccionadoController {
 	}
 
 	private boolean esActivo(Alquiler a) {
-		return a.getFechaDevolucion().isAfter(LocalDate.now());
+		return a.getFechaDevolucion() == null;
 	}
 
 	@FXML

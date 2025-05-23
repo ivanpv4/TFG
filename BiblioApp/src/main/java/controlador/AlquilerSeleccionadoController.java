@@ -99,7 +99,8 @@ public class AlquilerSeleccionadoController {
             Alquiler nuevoAlquiler = new Alquiler();
             nuevoAlquiler.setUsuario(usuario);
             nuevoAlquiler.setFechaAlquiler(LocalDate.now());
-            nuevoAlquiler.setFechaDevolucion(LocalDate.now().plusDays(14));
+            nuevoAlquiler.setFechaPrevista(LocalDate.now().plusDays(14));
+            nuevoAlquiler.setFechaDevolucion(null);
             nuevoAlquiler.setLibros(librosSeleccionados);
 
             for (Libro libro : librosSeleccionados) {
@@ -110,7 +111,7 @@ public class AlquilerSeleccionadoController {
             session.persist(nuevoAlquiler);
             session.getTransaction().commit();
 
-            mostrarInfo("La fecha máxima de devolución es: " + nuevoAlquiler.getFechaDevolucion());
+            mostrarInfo("La fecha máxima de devolución es: " + nuevoAlquiler.getFechaPrevista());
 
         } catch (Exception e) {
             e.printStackTrace();

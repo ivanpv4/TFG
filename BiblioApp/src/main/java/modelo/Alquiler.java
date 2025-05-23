@@ -16,8 +16,11 @@ public class Alquiler implements Serializable {
 
 	@Column(name = "Fecha_Alquiler", nullable = false)
 	private LocalDate fechaAlquiler;
+	
+	@Column(name = "Fecha_Prevista", nullable = false)
+	private LocalDate fechaPrevista;
 
-	@Column(name = "Fecha_Devolución", nullable = false)
+	@Column(name = "Fecha_Devolución")
 	private LocalDate fechaDevolucion;
 
 	@ManyToOne
@@ -42,6 +45,14 @@ public class Alquiler implements Serializable {
 
 	public void setFechaAlquiler(LocalDate fechaAlquiler) {
 		this.fechaAlquiler = fechaAlquiler;
+	}
+	
+	public LocalDate getFechaPrevista() {
+		return fechaPrevista;
+	}
+	
+	public void setFechaPrevista(LocalDate fechaPrevista) {
+		this.fechaPrevista = fechaPrevista;
 	}
 
 	public LocalDate getFechaDevolucion() {
@@ -68,7 +79,8 @@ public class Alquiler implements Serializable {
 		this.libros = libros;
 	}
 
+	@Transient
 	public boolean estaActivo() {
-		return LocalDate.now().isBefore(fechaDevolucion);
+		return fechaDevolucion == null;
 	}
 }
