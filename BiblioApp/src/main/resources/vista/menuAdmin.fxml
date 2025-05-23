@@ -26,17 +26,17 @@
             <Font size="48.0" />
          </font>
       </Label>
-      <ImageView fx:id="profileImage" fitHeight="175.0" fitWidth="175.0" layoutX="177.0" layoutY="538.0" onMouseClicked="#perfil" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+      <ImageView fx:id="historialImage" fitHeight="175.0" fitWidth="175.0" layoutX="177.0" layoutY="538.0" onMouseClicked="#historial" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
          <image>
-            <Image url="@/img/perfil.png" />
+            <Image url="@/img/historial.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="206.0" layoutY="726.0" prefHeight="70.0" prefWidth="117.0" style="-fx-background-color: #B9935A; -fx-background-radius: 15;" text="Perfil" textFill="#f8f8f8">
+      <Label alignment="CENTER" layoutX="167.0" layoutY="726.0" prefHeight="70.0" prefWidth="195.0" style="-fx-background-color: #B9935A; -fx-background-radius: 15;" text="Historial" textFill="#f8f8f8">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <ImageView fx:id="rentImage" fitHeight="175.0" fitWidth="175.0" layoutX="770.0" layoutY="238.0" onMouseClicked="#alquiler" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+      <ImageView fx:id="rentImage" fitHeight="175.0" fitWidth="175.0" layoutX="770.0" layoutY="238.0" onMouseClicked="#alquilerAdmin" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
          <image>
             <Image url="@/img/alquiler.png" />
          </image>

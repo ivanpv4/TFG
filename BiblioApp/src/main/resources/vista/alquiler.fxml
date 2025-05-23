@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -18,5 +22,26 @@
             <Image url="@/img\flechaBack.png" />
          </image>
       </ImageView>
+      <TableView fx:id="tablaLibros" editable="true" layoutX="198.0" layoutY="270.0" prefHeight="412.0" prefWidth="705.0">
+        <columns>
+          <TableColumn fx:id="colNombre" prefWidth="155.0" text="Nombre" />
+          <TableColumn fx:id="colAutor" prefWidth="131.0" text="Autor" />
+            <TableColumn fx:id="colGenero" prefWidth="149.0" text="Género" />
+            <TableColumn fx:id="colAño" prefWidth="78.0" text="Año" />
+            <TableColumn fx:id="colISBN" prefWidth="117.0" text="ISBN" />
+            <TableColumn fx:id="colSeleccionar" prefWidth="75.0" />
+        </columns>
+      </TableView>
+      <TextField fx:id="buscador" layoutX="198.0" layoutY="210.0" onKeyReleased="#filtrarLibros" prefHeight="35.0" prefWidth="705.0" promptText="Busque por nombre, autor, género, año o ISBN" />
+      <Button fx:id="botonAlquilar" layoutX="503.0" layoutY="731.0" mnemonicParsing="false" onAction="#alquilarLibroSeleccionado" prefHeight="39.0" prefWidth="95.0" text="Alquilar">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="392.0" layoutY="691.0" text="Puede alquilar un máximo de 5 libros">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

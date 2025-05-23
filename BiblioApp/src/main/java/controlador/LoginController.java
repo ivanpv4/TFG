@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import modelo.ManagerUsuario;
+import modelo.Usuario;
 
 public class LoginController {
 
@@ -23,6 +24,16 @@ public class LoginController {
 	private Label mensaje;
 	
 	public static boolean esAdmin;
+	
+	private static Usuario usuarioActual;
+	
+	public static Usuario getUsuarioActual() {
+		return usuarioActual;
+	}
+	
+	private void setUsuarioActual(Usuario user) {
+		usuarioActual = user;
+	}
 	
 	@FXML
     private void goToMenu() throws IOException {
@@ -39,6 +50,7 @@ public class LoginController {
     	BiblioApp.setRoot("registro");
     }
     
+    
     @FXML
     private void login() throws IOException {
     	mensaje.setText("");
@@ -47,9 +59,11 @@ public class LoginController {
     	} else if (ManagerUsuario.esAdmin(usuarioField.getText())) {
     		esAdmin = true;
     		goToMenuAdmin();
+    		setUsuarioActual(ManagerUsuario.usuarioActual(usuarioField.getText()));
     	} else {
     		esAdmin = false;
     		goToMenu();
+    		setUsuarioActual(ManagerUsuario.usuarioActual(usuarioField.getText()));
     	}
     }
     

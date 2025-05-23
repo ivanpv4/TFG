@@ -1,12 +1,15 @@
 package modelo;
 
 import java.io.Serializable;
-
+import java.util.List;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import javafx.beans.property.BooleanProperty;
@@ -20,15 +23,21 @@ public class Usuario implements Serializable {
 	@Column(name = "ID_Usuario")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_usuario;
+	
 	@Column(name = "Usuario", unique = true, nullable = false)
 	private String usuario;
+	
 	@Column(name = "Contraseña", nullable = false)
 	private String contraseña;
+	
 	@Column(name = "Admin")
 	private boolean admin;
 	
 	@Transient
 	private final BooleanProperty seleccionado = new SimpleBooleanProperty(false);
+	
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Alquiler> alquileres;
 	
 	public Usuario(String usuario, String contraseña) {
 		this.usuario = usuario;
@@ -88,6 +97,15 @@ public class Usuario implements Serializable {
 	
 	public void setSeleccionado(boolean seleccionado) {
 	    this.seleccionado.set(seleccionado);
+	}
+	
+	public List<Alquiler> getAlquileres() {
+	    return alquileres;
+	}
+	
+	@Override
+	public String toString() {
+		return usuario;
 	}
 	
 }

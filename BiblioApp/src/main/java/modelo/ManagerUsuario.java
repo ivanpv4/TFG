@@ -70,5 +70,13 @@ public class ManagerUsuario {
 		session.close();
 		return true;
 	}
+	
+	public static Usuario usuarioActual(String usuario) {
+		try (Session session = ManagerPrincipal.sessionFactory.openSession()) {
+			Query<Usuario> query = session.createQuery("FROM Usuario WHERE usuario = :nombre", Usuario.class);
+			query.setParameter("nombre", usuario);
+			return query.getSingleResult();
+		}
+	}
 }
 

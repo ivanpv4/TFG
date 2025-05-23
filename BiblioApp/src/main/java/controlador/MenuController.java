@@ -29,8 +29,18 @@ public class MenuController {
 	}
 	
 	@FXML
+	private void alquilerAdmin() throws IOException {
+		BiblioApp.setRoot("alquilerAdmin");
+	}
+	
+	@FXML
 	private void perfil() throws IOException {
 		BiblioApp.setRoot("perfil");
+	}
+	
+	@FXML
+	private void historial() throws IOException {
+		BiblioApp.setRoot("historial");
 	}
 	
 	@FXML

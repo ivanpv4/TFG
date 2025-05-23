@@ -12,5 +12,6 @@
 		<mapping class="modelo.Usuario" />
 		<mapping class="modelo.Libro"/>
 		<mapping class="modelo.Genero"/>
+		<mapping class="modelo.Alquiler"/>
 	</session-factory>
 </hibernate-configuration>

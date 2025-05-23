@@ -113,5 +113,10 @@ public class Libro implements Serializable {
 	public void setSeleccionado(boolean seleccionado) {
 	    this.seleccionado.set(seleccionado);
 	}
+	
+	@Override
+	public String toString() {
+		return nombre_libro;
+	}
 
 }

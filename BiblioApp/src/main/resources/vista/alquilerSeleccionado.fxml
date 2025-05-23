@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1100.0" style="-fx-background-color: #fceb9b;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.AlquilerSeleccionadoController">
+   <children>
+      <Label alignment="CENTER" layoutX="403.0" layoutY="55.0" prefHeight="105.0" prefWidth="295.0" style="-fx-background-color: #B9935A; -fx-background-radius: 15;" text="Alquiler" textFill="#f8f8f8">
+         <font>
+            <Font size="72.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tablaSeleccionados" layoutX="235.0" layoutY="306.0" prefHeight="200.0" prefWidth="630.0">
+        <columns>
+          <TableColumn fx:id="colNombre" prefWidth="155.0" text="Nombre" />
+          <TableColumn fx:id="colAutor" prefWidth="131.0" text="Autor" />
+            <TableColumn fx:id="colGenero" prefWidth="149.0" text="Género" />
+            <TableColumn fx:id="colAño" prefWidth="78.0" text="Año" />
+            <TableColumn fx:id="colISBN" prefWidth="117.0" text="ISBN" />
+        </columns>
+      </TableView>
+      <Label layoutX="235.0" layoutY="260.0" text="Los libros que van a ser alquilados son:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="botonConfirmar" layoutX="467.0" layoutY="617.0" mnemonicParsing="false" onAction="#confirmarAlquiler" prefHeight="39.0" text="Confirmar alquiler">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="mFechaAlquiler" layoutX="235.0" layoutY="522.0" textFill="#e81010">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="mFechaDevolucion" layoutX="235.0" layoutY="562.0" textFill="#e81010">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="backImage" fitHeight="70.0" fitWidth="70.0" layoutX="996.0" layoutY="750.0" onMouseClicked="#regresar" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="34.0">
+         <image>
+            <Image url="@../img/flechaBack.png" />
+         </image>
+      </ImageView>
+      <GridPane fx:id="mostrarError" layoutX="346.0" layoutY="325.0" prefHeight="200.0" prefWidth="410.0" style="-fx-background-color: #fceb9b; -fx-border-color: #000000; -fx-background-radius: 15; -fx-border-radius: 15;" visible="false">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="71.0" minHeight="0.0" prefHeight="55.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="135.0" minHeight="10.0" prefHeight="84.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" prefHeight="27.0" prefWidth="413.0" text="No puedes alquilar más de 5 libros en total">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="mError" alignment="CENTER" prefHeight="27.0" prefWidth="413.0" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="aceptarBoton" mnemonicParsing="false" onAction="#ocultarError" text="Aceptar" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="161.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+      <Pane fx:id="filtro" opacity="0.8" prefHeight="850.0" prefWidth="1100.0" style="-fx-background-color: #6b6441;" visible="false" />
+      <GridPane fx:id="mostrarInfo" layoutX="349.0" layoutY="306.0" prefHeight="200.0" prefWidth="430.0" style="-fx-background-color: #fceb9b; -fx-border-color: #000000; -fx-background-radius: 15; -fx-border-radius: 15;" visible="false">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="71.0" minHeight="0.0" prefHeight="55.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="135.0" minHeight="10.0" prefHeight="84.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="430.0" text="Alquiler realizado con éxito">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="mInfo" alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="430.0" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="aceptarBoton2" mnemonicParsing="false" onAction="#regresar" text="Aceptar" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="171.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
