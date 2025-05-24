@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -18,5 +20,13 @@
             <Image url="@/img\flechaBack.png" />
          </image>
       </ImageView>
+      <TableView fx:id="tablaAlquileres" layoutX="150.0" layoutY="255.0" prefHeight="420.0" prefWidth="820.0">
+         <columns>
+            <TableColumn fx:id="colFechaAlq" prefWidth="100.0" text="F. alquiler" />
+            <TableColumn fx:id="colFechaPrev" prefWidth="100.0" text="F. prevista" />
+            <TableColumn fx:id="colFechaDev" prefWidth="100.0" text="F. devolución" />
+            <TableColumn fx:id="colLibros" prefWidth="520.0" text="Libros" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

@@ -24,7 +24,7 @@
         <columns>
           <TableColumn fx:id="colFechaAlq" prefWidth="100.0" text="F. alquiler" />
           <TableColumn fx:id="colFechaPrev" prefWidth="100.0" text="F. prevista" />
-            <TableColumn fx:id="colFechaDev" prefWidth="100.0" text="F. Devolución" />
+            <TableColumn fx:id="colFechaDev" prefWidth="100.0" text="F. devolución" />
           <TableColumn fx:id="colLibros" prefWidth="420.0" text="Libros" />
           <TableColumn fx:id="colAccion" prefWidth="100.0" />
         </columns>
