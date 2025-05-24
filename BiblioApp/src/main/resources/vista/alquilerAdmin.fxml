@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1100.0" style="-fx-background-color: #fceb9b;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.AlquilerAdminController">
    <children>
@@ -19,5 +22,18 @@
             <Image url="@../img/flechaBack.png" />
          </image>
       </ImageView>
+      <TableView fx:id="tablaUsuarios" editable="true" layoutX="385.0" layoutY="300.0" prefHeight="380.0" prefWidth="330.0">
+         <columns>
+            <TableColumn fx:id="colUsuario" prefWidth="155.0" text="Usuario" />
+            <TableColumn fx:id="colRol" prefWidth="100.0" text="Rol" />
+            <TableColumn fx:id="colSeleccionar" prefWidth="75.0" />
+         </columns>
+      </TableView>
+      <TextField fx:id="buscador" layoutX="385.0" layoutY="240.0" onKeyReleased="#filtrarUsuarios" prefHeight="35.0" prefWidth="330.0" promptText="Busque por usuario o rol" />
+      <Button fx:id="elegirBoton" layoutX="484.0" layoutY="725.0" mnemonicParsing="false" onAction="#elegirUsuario" prefHeight="39.0" prefWidth="132.0" text="Elegir usuario">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

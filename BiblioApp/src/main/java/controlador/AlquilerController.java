@@ -78,7 +78,8 @@ public class AlquilerController {
 	
 	private void cargarLibros() {
 		try (Session session = ManagerPrincipal.getSessionFactory().openSession()) {
-			List<Libro> libros = session.createQuery("SELECT DISTINCT l FROM Libro l LEFT JOIN FETCH l.generos WHERE l.disponibilidad = TRUE", Libro.class).getResultList();
+			List<Libro> libros = session.createQuery("SELECT DISTINCT l FROM Libro l LEFT JOIN FETCH l.generos WHERE l.disponibilidad = TRUE",
+					Libro.class).getResultList();
 			listaLibros = FXCollections.observableArrayList(libros);
 			tablaLibros.setItems(listaLibros);
 			

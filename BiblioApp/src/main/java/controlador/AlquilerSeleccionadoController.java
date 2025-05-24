@@ -79,48 +79,89 @@ public class AlquilerSeleccionadoController {
 
     @FXML
     private void confirmarAlquiler() {
-        Usuario usuario = LoginController.getUsuarioActual();
+        if (AlquilerAdminController.elegidoPorAdmin == null) {
+        	Usuario usuario = LoginController.getUsuarioActual();
 
-        try (Session session = ManagerPrincipal.getSessionFactory().openSession()) {
-            session.beginTransaction();
-            usuario = session.get(Usuario.class, usuario.getId_usuario());
+            try (Session session = ManagerPrincipal.getSessionFactory().openSession()) {
+                session.beginTransaction();
+                usuario = session.get(Usuario.class, usuario.getId_usuario());
 
-            long librosEnAlquiler = usuario.getAlquileres().stream()
-                    .filter(this::esAlquilerActivo)
-                    .flatMap(a -> a.getLibros().stream())
-                    .count();
+                long librosEnAlquiler = usuario.getAlquileres().stream()
+                        .filter(this::esAlquilerActivo)
+                        .flatMap(a -> a.getLibros().stream())
+                        .count();
 
-            if (librosEnAlquiler + librosSeleccionados.size() > 5) {
-                mostrarError("Actualmente tienes " + librosEnAlquiler + " libro/s alquilado/s");
-                session.getTransaction().rollback();
-                return;
+                if (librosEnAlquiler + librosSeleccionados.size() > 5) {
+                    mostrarError("Actualmente tienes " + librosEnAlquiler + " libro/s alquilado/s");
+                    session.getTransaction().rollback();
+                    return;
+                }
+
+                Alquiler nuevoAlquiler = new Alquiler();
+                nuevoAlquiler.setUsuario(usuario);
+                nuevoAlquiler.setFechaAlquiler(LocalDate.now());
+                nuevoAlquiler.setFechaPrevista(LocalDate.now().plusDays(14));
+                nuevoAlquiler.setFechaDevolucion(null);
+                nuevoAlquiler.setLibros(librosSeleccionados);
+
+                for (Libro libro : librosSeleccionados) {
+                    libro.setDisponibilidad(false);
+                    session.merge(libro);
+                }
+
+                session.persist(nuevoAlquiler);
+                session.getTransaction().commit();
+
+                mostrarInfo("La fecha máxima de devolución es: " + nuevoAlquiler.getFechaPrevista());
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("HA PETADO");
             }
+        } else {
+        	Usuario usuario = AlquilerAdminController.elegidoPorAdmin;
 
-            Alquiler nuevoAlquiler = new Alquiler();
-            nuevoAlquiler.setUsuario(usuario);
-            nuevoAlquiler.setFechaAlquiler(LocalDate.now());
-            nuevoAlquiler.setFechaPrevista(LocalDate.now().plusDays(14));
-            nuevoAlquiler.setFechaDevolucion(null);
-            nuevoAlquiler.setLibros(librosSeleccionados);
+            try (Session session = ManagerPrincipal.getSessionFactory().openSession()) {
+                session.beginTransaction();
+                usuario = session.get(Usuario.class, usuario.getId_usuario());
 
-            for (Libro libro : librosSeleccionados) {
-                libro.setDisponibilidad(false);
-                session.merge(libro);
+                long librosEnAlquiler = usuario.getAlquileres().stream()
+                        .filter(this::esAlquilerActivo)
+                        .flatMap(a -> a.getLibros().stream())
+                        .count();
+
+                if (librosEnAlquiler + librosSeleccionados.size() > 5) {
+                    mostrarError("Actualmente tienes " + librosEnAlquiler + " libro/s alquilado/s");
+                    session.getTransaction().rollback();
+                    return;
+                }
+
+                Alquiler nuevoAlquiler = new Alquiler();
+                nuevoAlquiler.setUsuario(usuario);
+                nuevoAlquiler.setFechaAlquiler(LocalDate.now());
+                nuevoAlquiler.setFechaPrevista(LocalDate.now().plusDays(14));
+                nuevoAlquiler.setFechaDevolucion(null);
+                nuevoAlquiler.setLibros(librosSeleccionados);
+
+                for (Libro libro : librosSeleccionados) {
+                    libro.setDisponibilidad(false);
+                    session.merge(libro);
+                }
+
+                session.persist(nuevoAlquiler);
+                session.getTransaction().commit();
+
+                mostrarInfo("La fecha máxima de devolución es: " + nuevoAlquiler.getFechaPrevista());
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("HA PETADO");
             }
-
-            session.persist(nuevoAlquiler);
-            session.getTransaction().commit();
-
-            mostrarInfo("La fecha máxima de devolución es: " + nuevoAlquiler.getFechaPrevista());
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("HA PETADO");
         }
     }
 
     private boolean esAlquilerActivo(Alquiler a) {
-        return a.getFechaDevolucion().isAfter(LocalDate.now());
+        return a.getFechaDevolucion() == null;
     }
     
     private void mostrarInfo(String mensaje) {
